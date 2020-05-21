@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ca5618fa-94f2-493a-9238-71199fed5547" name="task-tracker" url="http://51.15.94.110">
+        <fileTransfer host="51.15.94.110" port="3121" privateKey="C:\Users\okharabet\.ssh\id_rsa" rootFolder="/var/www/task-tracker" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="3121" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
