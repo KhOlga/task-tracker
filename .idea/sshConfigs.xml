@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="51.15.94.110" id="18b64a1d-7d94-4ab0-8278-17de12799359" keyPath="C:\Users\okharabet\.ssh\id_rsa" port="3121" customName="task-tracker" nameFormat="CUSTOM" username="root" />
+    </configs>
+  </component>
+</project>

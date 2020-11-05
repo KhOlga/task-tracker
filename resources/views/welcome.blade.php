@@ -74,7 +74,7 @@
 
                 <div class="links">
                     <a href="{{ url('/description') }}">API Description</a>
-                    <a href="https://github.com/KhOlga">GitHub</a>
+                    <a href="https://github.com/KhOlga/task-tracker">GitHub</a>
                 </div>
             </div>
         </div>
