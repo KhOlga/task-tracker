@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/** @mixin Builder */
 class User extends Authenticatable
 {
     use Notifiable;

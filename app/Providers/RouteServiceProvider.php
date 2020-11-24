@@ -21,7 +21,14 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/profile';
+
+    /**
+     * The path to the "admin" route for your application.
+     *
+     * @var string
+     */
+    public const ADMIN = '/admin';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -46,7 +53,9 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        $this->mapProfileRoutes();
+
+        $this->mapAdminRoutes();
     }
 
     /**
@@ -73,8 +82,41 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api/v1')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+            ->as('api.')
+            ->middleware('api')
+            ->namespace($this->namespace . '\API')
+            ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the "profile" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapProfileRoutes()
+    {
+        Route::prefix('profile')
+            ->as('profile.')
+            ->middleware('web')
+            ->namespace($this->namespace . '\Profile')
+            ->group(base_path('routes/profile.php'));
+    }
+
+    /**
+     * Define the "admin" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapAdminRoutes()
+    {
+        Route::prefix('admin')
+            ->as('admin.')
+            ->middleware('web')
+            ->namespace($this->namespace . '\Admin')
+            ->group(base_path('routes/admin.php'));
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,5 @@ use Illuminate\Http\Request;
 |
 */
 
-
-Route::apiResource('task', 'API\TaskController');
-Route::apiResource('user', 'API\UserController');
+Route::apiResource('task', 'TaskController');
+Route::apiResource('user', 'UserController');
