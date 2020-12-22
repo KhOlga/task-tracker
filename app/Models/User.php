@@ -30,7 +30,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -45,6 +46,11 @@ class User extends Authenticatable
     protected function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
+    }
+
+    public function tasks()
+    {
+        return $this->hasOne(\App\Models\Task::class);
     }
 
 }
