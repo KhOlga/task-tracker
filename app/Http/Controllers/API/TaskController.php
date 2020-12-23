@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-
-
 use App\Models\Task;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Task as TaskResource;
-
 
 class TaskController extends Controller
 {
@@ -36,37 +33,34 @@ class TaskController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Task $task
      * @return TaskResource
      */
-    public function show($id)
+    public function show(Task $task)
     {
-        return new TaskResource(Task::find($id));
+        return new TaskResource($task);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Task $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Task $task)
     {
-        $task = Task::findOrFail($id);
         $task->update($request->all());
-        return $task;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Task $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Task $task)
     {
-        $task = Task::findOrFail($id);
         $task->delete();
         return  204;
     }

@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/** @mixin Builder */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -28,7 +30,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -43,6 +46,11 @@ class User extends Authenticatable
     protected function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
+    }
+
+    public function tasks()
+    {
+        return $this->hasOne(\App\Models\Task::class);
     }
 
 }

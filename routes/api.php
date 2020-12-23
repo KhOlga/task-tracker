@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,19 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::apiResource('task', 'TaskController');
+Route::apiResource('user', 'UserController');
 
-Route::apiResource('task', 'API\TaskController');
-Route::apiResource('user', 'API\UserController');
+Route::get('stats', function () {
+    return [
+        'videos' => 180,
+        'lessons' => 1400
+    ];
+});
+
+//tasks
+Route::get('tasks', function () {
+    $user = User::where('email', 'tclutheram13@latimes.com')->first();
+
+    return $user->tasks->title; //TODO: resource, collection
+});

@@ -32,7 +32,6 @@ class CreateTasksTable extends Migration
                 ->references('id')
                 ->on('statuses')
                 ->onDelete('cascade');
-
         });
     }
 
